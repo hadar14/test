@@ -1,24 +1,38 @@
+<!DOCTYPE html>
 <html>
-<head>
-	<title>סכום שני מספרים</title>
-</head>
 <body>
-	<h1>סכום שני מספרים</h1>
-	<form>
-		<label for="num1">הכנס מספר ראשון:</label>
-		<input type="number" id="num1" name="num1"><br><br>
-		<label for="num2">הכנס מספר שני:</label>
-		<input type="number" id="num2" name="num2"><br><br>
-		<input type="button" value="חשב סכום" onclick="calculateSum()">
-	</form>
-	<p id="result"></p>
-	<script>
-		function calculateSum() {
-			var num1 = parseInt(document.getElementById("num1").value);
-			var num2 = parseInt(document.getElementById("num2").value);
-			var sum = num1 + num2;
-			document.getElementById("result").innerHTML = "הסכום הוא: " + sum;
-		}
-	</script>
+<iframe id="myVideo" width="560" height="315" src="https://www.youtube.com/embed/1qaIET0kg54" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<button onclick="showConfirmation()">כן</button>
+
+<img id="myImage" style="display:none" src="https://upload.wikimedia.org/wikipedia/commons/2/23/Male_lion_picture._Shot_by_Vikta_JuiceBoy.jpg" alt="My Image">
+<script>
+function showConfirmation() {
+  var response = confirm("האם תרצה לראות את התמונה?");
+  if (response == true) {
+    showImage();
+  }
+}
+
+function showImage() {
+  document.getElementById("myVideo").style.display = "none";
+  document.getElementById("myImage").style.display = "block";
+  document.getElementById("myQuestion").style.display = "block";
+}
+
+function checkAnswer() {
+  var answer = document.getElementById("answer").value;
+  if (answer == "אריה" || answer == "א") {
+    alert("תשובה נכונה!");
+  } else {
+    alert("תשובה שגויה, נסה שוב");
+  }
+}
+
+</script>
+<div id="myQuestion" style="display:none">
+  <p>באיזה אות מתחילה המילה "אריה"?</p>
+  <input type="text" id="answer">
+  <button onclick="checkAnswer()">בדוק</button>
+</div>
 </body>
 </html>
